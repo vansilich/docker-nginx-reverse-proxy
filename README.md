@@ -1,3 +1,3 @@
-# docker-apache
+# docker reverse proxy on NGINX
 
-Скелет для создания apache FCGI web-сервера 
+Обратный прокси на NGINX для доступа из интернета к контейнерам сервера 
