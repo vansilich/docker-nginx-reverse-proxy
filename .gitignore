@@ -1,0 +1,8 @@
+.DS_Store
+.env
+certbot/logs/*
+certbot/conf/*
+certbot/www/*
+/.idea
+/.vscode
+/web-sites/

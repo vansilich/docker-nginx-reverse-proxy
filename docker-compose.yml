@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+      - ./nginx/config/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - 'REVERSE_PROXY_ACCESS'
+  
+  vector:
+    build:
+      context: ./vector
+    volumes:
+      - ./logs/nginx:/var/log/nginx:ro
+    networks:
+      - 'REVERSE_PROXY_ACCESS'
+  
+networks:
+  REVERSE_PROXY_ACCESS:
+    name: REVERSE_PROXY_ACCESS

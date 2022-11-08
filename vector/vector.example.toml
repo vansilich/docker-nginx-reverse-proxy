@@ -1,0 +1,8 @@
+[sources.apache_access]
+type = "file"
+include = [ "/var/log/apache/revo-test_access.log" ]
+
+[sinks.emit_apache_access]
+inputs = ["apache_access"]
+type = "console"
+encoding.codec = "json"
